@@ -22,6 +22,9 @@ app.use(
   })
 );
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 app.use("/auth", authRoute);
 
 app.listen("5000", () => {
