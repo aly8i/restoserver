@@ -24,7 +24,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Welcome to the Resturant authentication server !')
 })
 app.use("/auth", authRoute);
 
