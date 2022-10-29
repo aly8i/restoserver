@@ -27,6 +27,6 @@ app.get('/', (req, res) => {
 })
 app.use("/auth", authRoute);
 
-app.listen("5000", () => {
+app.listen(5000, () => {
   console.log("Server is running!");
 });
