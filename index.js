@@ -5,6 +5,7 @@ const passportSetup = require("./passport");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const app = express();
+const port = 5000
 require('dotenv').config();
 
 app.use(
@@ -27,6 +28,6 @@ app.get('/', (req, res) => {
 })
 app.use("/auth", authRoute);
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || port, () => {
   console.log("Server is running!");
 });
