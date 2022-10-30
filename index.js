@@ -7,14 +7,6 @@ const authRoute = require("./routes/auth");
 const app = express();
 const port = 5000
 require('dotenv').config();
-
-app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(
   cors({
     origin: `${process.env.CLIENT_URL}`,
@@ -22,6 +14,14 @@ app.use(
     credentials: true,
   })
 );
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Resturant authentication server !')
