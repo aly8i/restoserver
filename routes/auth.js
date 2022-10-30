@@ -13,7 +13,6 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.setHeader("Set-Cookie",cookie.serialize("accessToken", "", {
     maxAge: -1,
-    sameSite: "strict",
     httpOnly: true,
     path: "/",
   })
