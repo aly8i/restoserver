@@ -24,7 +24,7 @@ app.use(passport.session());
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Resturant authentication server !')
+  res.send(`Welcome to the Resturant authentication server ! ${process.env.CLIENT_URL}`)
 })
 app.use("/auth", authRoute);
 
