@@ -7,7 +7,13 @@ const authRoute = require("./routes/auth");
 const app = express();
 const port = 5000
 require('dotenv').config();
-app.use(cors());
+app.use(
+  cors({
+    origin: `${process.env.CLIENT_URL}/`,
+    methods: "GET,POST,PUT,DELETE"
+    // credentials: true,
+  })
+);
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
 );
