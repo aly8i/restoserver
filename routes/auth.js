@@ -5,7 +5,7 @@ require('dotenv').config();
 // const express = require('express');
 // const { requireSignin, userMiddleware } = require("../common-middleware");
 const {loginFail,loginSuccess} = require("../functions")
-router.get("/login/success",  loginSuccess);
+router.get("/login/success", loginSuccess);
 
 router.get("/login/failed", loginFail);
 
