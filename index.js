@@ -7,13 +7,14 @@ const authRoute = require("./routes/auth");
 const app = express();
 const port = 5000
 require('dotenv').config();
-app.use(
-  cors({
-    origin: `${process.env.CLIENT_URL}`,
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true
-  })
-);
+// app.use(
+//   cors({
+//     origin: `${process.env.CLIENT_URL}`,
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true
+//   })
+// );
+app.use(cors());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", `${process.env.CLIENT_URL}`);
   res.header("Access-Control-Allow-Credentials", "true")
