@@ -14,10 +14,14 @@ require('dotenv').config();
 //     credentials: true
 //   })
 // );
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://resturantz.vercel.app/"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+// app.options("*", cors({ origin: '', optionsSuccessStatus: 200 }));
 
-app.options("*", cors({ origin: 'https://resturantz.vercel.app/', optionsSuccessStatus: 200 }));
-
-app.use(cors({ origin: "https://resturantz.vercel.app/", optionsSuccessStatus: 200 }));
+// app.use(cors({ origin: "https://resturantz.vercel.app/", optionsSuccessStatus: 200 }));
 
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
